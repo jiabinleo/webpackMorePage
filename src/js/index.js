@@ -1,4 +1,4 @@
 import _ from 'lodash';
-import '../css/style.css';
+import '../css/index.css';
 
 console.log("this is index file")
