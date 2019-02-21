@@ -29,6 +29,9 @@ module.exports = {
             template: "./src/about.html"
         })
     ],
+    devServer: {
+        contentBase: './dist'//实时重新加载
+    },
     output: {
         filename: "js/[name].[hash:7].js",
         path: path.resolve(__dirname, "dist")
