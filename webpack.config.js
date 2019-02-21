@@ -56,6 +56,11 @@ module.exports = {
                         outputPath: "images"
                     }
                 }]
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
             }
         ]
     }
