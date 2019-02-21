@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const webpack = require('webpack')
 module.exports = {
     entry: {
         "index": "./src/js/index.js",
@@ -27,10 +28,13 @@ module.exports = {
             },
             title: "第二个页面",
             template: "./src/about.html"
-        })
+        }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        contentBase: './dist'//实时重新加载
+        contentBase: './dist', //实时重新加载
+        hot: true
     },
     output: {
         filename: "js/[name].[hash:7].js",
