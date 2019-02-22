@@ -1,21 +1,18 @@
 import _ from 'lodash';
 import '../css/index.css';
-
+import '../components/header/header.css'
 console.log("this is index file")
 
-// var tem = require('../components/header.vdt')
-// var Vdt = require('vdt');
-// var vdt = Vdt(tem);
-// var dom = vdt.render({
-//     title: 'vdt',
-//     items: {
-//         a: 1,
-//         b: 2
-//     },
-//     count: 0,
-//     onClick: function () {
-//         this.count++;
-//         vdt.update();
-//     }
-// });
-// document.body.appendChild(dom);
+const header = require('../components/header/header.art');
+const data = {
+    title1: 'My Page',
+    title2: 'My Page',
+    title3: 'My Page',
+    title4: 'My Page',
+    title5: 'My Page'
+};
+const html = header(data);
+console.log(html)
+document.getElementById("header").innerHTML = html
+
+module.exports = header;

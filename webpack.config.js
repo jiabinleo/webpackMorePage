@@ -3,32 +3,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const webpack = require('webpack')
 module.exports = {
-    entry: {
-        "index": "./src/js/index.js",
-        "about": "./src/js/about.js"
-    },
+    entry: {},
     plugins: [
         new CleanWebpackPlugin(["dist"]), //清除dist文件夹
-        new HtmlWebpackPlugin({
-            filename: "index.html", //文件名
-            chunks: ["index"], //添加引入的js,也就是entry中的key
-            hash: true, //向html引入的src链接后面增加一段hash值,消除缓存
-            minify: {
-                collapseWhitespace: false //折叠空白区域 也就是压缩代码
-            },
-            title: "Output Management", //title
-            template: "./src/index.html" //模板地址
-        }),
-        new HtmlWebpackPlugin({
-            filename: "about.html",
-            chunks: ["about"],
-            hash: true,
-            minify: {
-                collapseWhitespace: false
-            },
-            title: "第二个页面",
-            template: "./src/about.html"
-        }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ],
@@ -69,7 +46,31 @@ module.exports = {
                 }, {
                     loader: 'vdt-loader',
                 }]
+            },
+            {
+                test: /\.art$/,
+                loader: "art-template-loader",
+                options: {
+                    // art-template options (if necessary)
+                    // @see https://github.com/aui/art-template
+                }
             }
-        ]
+        ] /*  */
     }
 };
+var HtmlArr = ['index', 'about']
+HtmlArr.forEach(() => {
+    module.entry[item] = `./src/js/${item}.js`;
+    module.plugins.push(
+        new HtmlWebpackPlugin({
+            filename: `${item}.html`, //文件名
+            chunks: [`${item}`], //添加引入的js,也就是entry中的key
+            hash: true, //向html引入的src链接后面增加一段hash值,消除缓存
+            minify: {
+                collapseWhitespace: false //折叠空白区域 也就是压缩代码
+            },
+            title: "Output Management", //title
+            template: `./src/${item}.html` //模板地址
+        })
+    )
+})

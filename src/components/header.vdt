@@ -1,7 +1,0 @@
-<div>
-    <h1>{title}</h1>
-    <div ev-click={onClick.bind(self)}>Clicked: {count}</div>
-    <ul v-for={items}>
-        <li>{key}: {value}</li>
-    </ul>
-</div>
