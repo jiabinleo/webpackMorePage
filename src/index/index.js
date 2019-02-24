@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import '../css/index.css';
-import '../components/header/header.css'
+import './index.css';
+import '../components/header/header.art'
 console.log("this is index file")
 
 const header = require('../components/header/header.art');
