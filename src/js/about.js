@@ -1,6 +1,6 @@
-import './about.css';
+import '../css/about.less';
 console.log('I get called from print.js!');
-var asd = ()=>{
+var asd = () => {
     console.log('//////')
 }
 asd()
