@@ -6,7 +6,7 @@ const webpack = require("webpack");
 var devMode = false; //标志是否开发模式
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"); //压缩css
 
-var page = ["index", "about","news"];
+var page = ["index", "about", "news"];
 var moduleEntry = {};
 var moduleHtmlWebpackPlugin = [
     new CleanWebpackPlugin(["dist"]), //清除dist文件夹
@@ -81,7 +81,7 @@ module.exports = {
                         limit: 8192,
                         name: "[name].[hash:7].[ext]",
                         fallback: "file-loader",
-                        outputPath: "img"
+                        outputPath: "./img"
                     }
                 }]
             },
@@ -107,6 +107,15 @@ module.exports = {
                     // art-template options (if necessary)
                     // @see https://github.com/aui/art-template
                 }
+            },
+            {
+                test: /\.html$/,
+                use: [{
+                    loader: "html-loader",
+                    options: {
+                        attrs: ["img:src"] //此处的参数值  img是指html中的 <img/> 标签， src是指 img的src属性   表示 html-loader 作用于 img标签中的 src的属性
+                    }
+                }]
             }
         ] /*  */
     }
