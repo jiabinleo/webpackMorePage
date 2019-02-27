@@ -1,6 +1,5 @@
 import _ from 'lodash';
-import '../common/css/reset2.less';
-import '../common/css/reset3.less';
+import '../common/css/reset.less';
 import '../css/index.less';
 import '../components/header/header.less'
 import '../common/js/a';

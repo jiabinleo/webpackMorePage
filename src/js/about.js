@@ -1,5 +1,4 @@
-import '../common/css/reset1.less';
-import '../common/css/reset2.less';
+import '../common/css/reset.less';
 import '../css/about.less';
 import '../common/js/b';
 import '../common/js/c'
