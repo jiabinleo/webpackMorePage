@@ -1,0 +1,1 @@
+console.log('这也是公共的a')
