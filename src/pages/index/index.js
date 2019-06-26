@@ -1,12 +1,12 @@
 import _ from 'lodash';
-import '../common/css/reset.less';
-import '../css/index.less';
-import '../components/header/header.less'
-import '../common/js/a';
-import '../common/js/b'
+import '../../common/css/reset.less';
+import './index.less';
+import '../../components/header/header.less'
+import '../../common/js/a';
+import '../../common/js/b'
 console.log("this is index file")
 
-const header = require('../components/header/header.art');
+const header = require('../../components/header/header.art');
 const data = {
     title1: 'My Page',
     title2: 'My Page',
