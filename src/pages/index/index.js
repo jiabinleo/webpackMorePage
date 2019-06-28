@@ -15,11 +15,19 @@ const data = {
     title5: 'My Page'
 };
 const html = header(data);
-console.log(html)
 document.getElementById("header").innerHTML = html
 
 module.exports = header;
 
+(function () {
+    console.log("=====")
+}());
+!function () {
+    console.log("+++++")
+}();
+(function () {
+    console.log("-----")
+})()
 
 ! function () {
     function n(n, e, t) {
@@ -40,9 +48,9 @@ module.exports = header;
         return {
             l: o,
             z: n(i, "zIndex", -1),
-            o: n(i, "opacity", .5),
+            o: n(i, "opacity", 1),
             c: n(i, "color", num1 + ',' + num2 + ',' + num3),
-            n: n(i, "count", 90)
+            n: n(i, "count", 500)
         }
     }
 

@@ -11,7 +11,7 @@ let webpackConfig = {
     mode: "production",
     entry: {},
     plugins: [
-        new CleanWebpackPlugin(["build"]), //清除dist文件夹
+        new CleanWebpackPlugin(["dist"]), //清除dist文件夹
         new MiniCssExtractPlugin({
             filename: "css/[name].[hash:7].css"
         }),
@@ -32,12 +32,12 @@ let webpackConfig = {
         }
     },
     devServer: {
-        contentBase: "./dist", //实时重新加载
+        contentBase: "./build", //实时重新加载
         hot: true
     },
     output: {
         filename: "js/[name].[hash:7].js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "build")
     },
     module: {
         rules: [{
@@ -62,7 +62,7 @@ let webpackConfig = {
                     limit: 8192,
                     name: "[name].[hash:7].[ext]",
                     fallback: "file-loader",
-                    outputPath: "../img"
+                    outputPath: "./img"
                 }
             }]
         },
